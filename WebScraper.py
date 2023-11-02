@@ -57,6 +57,8 @@ def search_amazon(product_name, quantity):
 if __name__ == "__main__":
     product_name = str(input("Wprowadź nazwę produktu na Amazon: "))
     quantity = int(input("Wprowadź ilość produktów do wyświetlenia: "))
+    if quantity < 1:
+        print("Nic ci nie wydzuka panie")
     search_amazon(product_name, quantity)
 else:
     raise TimeoutError
