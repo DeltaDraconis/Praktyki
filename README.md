@@ -1,0 +1,1 @@
+Readme file. All functionalities instructions will be here soon
