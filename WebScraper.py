@@ -55,10 +55,16 @@ def search_amazon(product_name, quantity):
         print("Błąd podczas pobierania strony Amazon. Kod statusu:", response.status_code)
 
 if __name__ == "__main__":
-    product_name = str(input("Wprowadź nazwę produktu na Amazon: "))
-    quantity = int(input("Wprowadź ilość produktów do wyświetlenia: "))
+    if len(sys.argv) != 3:
+        print("Użycie: python WebScraper.py nazwa_produktu ilość_produktów")
+        sys.exit(1)
+
+    product_name = sys.argv[1]
+    quantity = int(sys.argv[2])
+
     if quantity < 1:
         print("Nic ci nie wydzuka panie")
-    search_amazon(product_name, quantity)
+    else:
+        search_amazon(product_name, quantity)
 else:
     raise TimeoutError
