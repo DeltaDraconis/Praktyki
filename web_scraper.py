@@ -2,7 +2,6 @@ import time
 import requests
 from bs4 import BeautifulSoup
 
-
 def search_amazon(product_name, quantity):
     """
     Wyszukuje produkty na Amazon i wyświetla informacje o nich.
@@ -51,4 +50,3 @@ if __name__ == "__main__":
     product_name = input("Wprowadź nazwę produktu na Amazon: ")
     quantity = int(input("Wprowadź ilość produktów do wyświetlenia: "))
     search_amazon(product_name, quantity)
-    
