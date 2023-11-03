@@ -46,6 +46,7 @@ def search_amazon(product_name, quantity):
     except requests.exceptions.RequestException as e:
         print(f"Błąd podczas pobierania strony Amazon: {e}")
 
+
 if __name__ == "__main__":
     product_name = input("Wprowadź nazwę produktu na Amazon: ")
     quantity = int(input("Wprowadź ilość produktów do wyświetlenia: "))
