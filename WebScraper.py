@@ -1,5 +1,6 @@
 import requests
 import time
+import sys
 from bs4 import BeautifulSoup
 
 def search_amazon(product_name, quantity):
