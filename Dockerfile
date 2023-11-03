@@ -16,8 +16,9 @@ COPY . .
 # Zainstaluj pyinstaller
 RUN pip install pyinstaller
 
+
 # Kompiluj skrypt Pythona do pliku wykonywalnego .exe
-RUN pyinstaller --onefile WebScraper.py
+RUN pyinstaller --onefile web_scraper.py
 
 # Określ plik wykonywalny jako ENTRYPOINT
-ENTRYPOINT ["./dist/WebScraper"]
+ENTRYPOINT ["./dist/web_scraper"]
