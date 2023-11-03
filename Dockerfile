@@ -1,18 +1,23 @@
-# Wybierz obraz bazowy Python 3.9
+# Użyj obrazu bazowego Pythona
 FROM python:3.9
 
-# Przejdź do katalogu /app wewnątrz kontenera
+# Ustaw katalog roboczy na /app
 WORKDIR /app
 
-# Skopiuj całą zawartość Twojego projektu do katalogu /app w kontenerze
-COPY . /app
+# Skopiuj plik wymagań (requirements.txt) do obrazu
+COPY requirements.txt .
 
-# Instaluj potrzebne narzędzia i biblioteki
-RUN apt-get update && apt-get install -y python3-pip
-RUN pip install requests beautifulsoup4 python-dotenv
+# Zainstaluj zależności za pomocą pip
+RUN pip install -r requirements.txt
 
-# Instalacja pyinstaller
+# Skopiuj resztę plików projektu do obrazu
+COPY . .
+
+# Zainstaluj pyinstaller
 RUN pip install pyinstaller
 
-# Komenda do konwersji kodu na plik EXE za pomocą PyInstaller
-CMD ["pyinstaller", "--onefile", "WebScraper.py"]
+# Kompiluj skrypt Pythona do pliku wykonywalnego .exe
+RUN pyinstaller --onefile WebScraper.py
+
+# Określ plik wykonywalny jako ENTRYPOINT
+ENTRYPOINT ["./dist/WebScraper"]
